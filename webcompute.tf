@@ -10,7 +10,7 @@ data "tfe_outputs" "nw" {
 }
 
 # Create web server instance
-resource "google_compute_instance" "web_server" {
+resource "google_compute_instance" "web_server1" {
   name         = "web-server"
   machine_type = "e2-micro"
   zone         = "us-central1-a"
