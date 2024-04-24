@@ -21,7 +21,7 @@ resource "google_compute_instance" "web_server1" {
     }
   }
 network_interface {
-    network = "data.tfe_outputs.nw.name"
+    network = "my-vpc-network"
 
     access_config {
       // Ephemeral public IP
