@@ -20,8 +20,3 @@ resource "google_compute_instance" "web_server" {
     }
   }
 }
-
-output "nw" {
-  value = data.google_compute_network.vpc_network.name
-  sensitive = true
-}
