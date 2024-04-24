@@ -8,6 +8,7 @@ data "tfe_outputs" "test" {
     organization =  "devopsmayur"
     workspace = "gcplabnetwork"
 }
+
 # Reference VPC network
 data "google_compute_network" "vpc_network" {
   name = google_compute_network.vpc_network.name
