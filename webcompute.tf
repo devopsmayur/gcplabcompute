@@ -8,6 +8,10 @@ data "tfe_outputs" "test" {
     organization =  "devopsmayur"
     workspace = "gcplabnetwork"
 }
+# Reference VPC network
+data "google_compute_network" "vpc_network" {
+  name = google_compute_network.vpc_network.name
+}
 
 # Create web server instance
 resource "google_compute_instance" "web_server" {
@@ -22,7 +26,6 @@ resource "google_compute_instance" "web_server" {
   }
 
   network_interface {
-    network = google_compute_network.vpc_network.self_link
+    network = data.google_compute_network.vpc_network.self_link
   }
 }
-
