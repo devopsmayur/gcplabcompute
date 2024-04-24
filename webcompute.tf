@@ -21,7 +21,7 @@ resource "google_compute_instance" "web_server" {
 
 }
 
-  network {
+  network_interface {
     network = default
 }
 
