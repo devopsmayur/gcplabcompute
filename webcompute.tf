@@ -4,7 +4,7 @@ provider "google" {
   region  = "us-central1"
 }
 
-data "tfe_outputs" "test" {
+data "tfe_outputs" "nw" {
     organization =  "devopsmayur"
     workspace = "gcplabnetwork"
 }
@@ -18,6 +18,13 @@ resource "google_compute_instance" "web_server" {
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-11"
+    }
+  }
+network_interface {
+    network = "data.tfe_outputs.nw.name"
+
+    access_config {
+      // Ephemeral public IP
     }
   }
 
