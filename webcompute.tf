@@ -4,13 +4,20 @@ provider "google" {
   region  = "us-central1"
 }
 
-# Reference subnets
-data "google_compute_subnetwork" "web_subnet" {
-  name    = google_compute_subnetwork.web_subnet.name
-  region  = google_compute_subnetwork.web_subnet.region
+# Create web server instance
+resource "google_compute_instance" "web_server" {
+  name         = "web-server"
+  machine_type = "e2-micro"
+  zone         = "us-central1-a"
+  boot_disk {
+    initialize_params {
+      image = "ubuntu-1804-lts"
+    }
+  }
 }
 
 # Reference VPC network
 data "google_compute_network" "vpc_network" {
   name = google_compute_network.vpc_network.name
 }
+
