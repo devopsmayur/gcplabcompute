@@ -30,3 +30,4 @@ resource "google_compute_instance" "web_server" {
     network = data.google_compute_network.vpc_network.self_link
   }
 }
+
