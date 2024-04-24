@@ -4,6 +4,11 @@ provider "google" {
   region  = "us-central1"
 }
 
+data "tfe_outputs" "test" {
+    organization =  "devopsmayur"
+    workspace = "gcplabnetwork"
+}
+
 # Create web server instance
 resource "google_compute_instance" "web_server" {
   name         = "web-server"
