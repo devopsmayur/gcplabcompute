@@ -16,8 +16,7 @@ resource "google_compute_instance" "web_server" {
   }
 }
 
-# Reference VPC network
-data "google_compute_network" "vpc_network" {
-  name = google_compute_network.vpc_network.name
+output "nw" {
+  value = google_compute_network.vpc_network.name
+  sensitive = true
 }
-
