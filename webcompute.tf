@@ -18,8 +18,11 @@ resource "google_compute_instance" "web_server" {
     initialize_params {
       image = "ubuntu-1804-lts"
     }
-  network_interface {
+
+}
+
+  network {
     network = default
 }
-}
+
 }
