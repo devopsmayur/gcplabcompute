@@ -11,7 +11,7 @@ data "tfe_outputs" "test" {
 
 # Reference VPC network
 data "google_compute_network" "vpc_network" {
-  name = google_compute_network.vpc_network.name
+  name = data.google_compute_network.vpc_network
 }
 
 # Create web server instance
