@@ -22,7 +22,7 @@ resource "google_compute_instance" "web_server2" {
     }
   }
 network_interface {
-    network = data.tfe_outputs.nw.id
+    network = data.tfe_outputs.nw.vaules.id
 
     access_config {
       // Ephemeral public IP
