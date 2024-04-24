@@ -9,11 +9,6 @@ data "tfe_outputs" "test" {
     workspace = "gcplabnetwork"
 }
 
-# Reference VPC network
-data "google_compute_network" "vpc_network" {
-  name = data.google_compute_network.vpc_network
-}
-
 # Create web server instance
 resource "google_compute_instance" "web_server" {
   name         = "web-server"
