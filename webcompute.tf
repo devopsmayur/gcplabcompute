@@ -28,7 +28,7 @@ resource "google_compute_instance" "web_server1" {
     }
   }
 network_interface {
-    network = data.terraform_remote_state.vpc.outputs.id
+    network = data.google_compute_network.vpc_network.id
 
     access_config {
       // Ephemeral public IP
