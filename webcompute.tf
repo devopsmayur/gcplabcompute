@@ -17,7 +17,7 @@ resource "google_compute_instance" "web_server" {
   
   boot_disk {
     initialize_params {
-      image = "ubuntu-1804-lts"
+      image = "debian-cloud/debian-11"
     }
   }
 
