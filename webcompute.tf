@@ -18,11 +18,12 @@ resource "google_compute_instance" "web_server" {
     initialize_params {
       image = "ubuntu-1804-lts"
     }
-  }
-
  network_interface {
     network = data.google_compute_network.vpc_network.name
 
 }
+  }
+
+
 
 }
