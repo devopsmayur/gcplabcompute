@@ -4,17 +4,11 @@ provider "google" {
   region  = "us-central1"
 }
 
-
-data "terraform_remote_state" "vpc" {
-  backend = "remote"
-
-  config = {
-    organization = "devopsmayur"
-    workspaces = {
-      name = "gcplabnetwork"
-    }
-  }
+data "tfe_outputs" "nw" {
+    organization =  "devopsmayur"
+    workspace = "gcplabnetwork"
 }
+
 
 # Create web server instance
 resource "google_compute_instance" "web_server1" {
@@ -28,7 +22,7 @@ resource "google_compute_instance" "web_server1" {
     }
   }
 network_interface {
-    network = data.google_compute_network.vpc_network.id
+    network = data.tfe_outputs.nw.vpc_network.id
 
     access_config {
       // Ephemeral public IP
